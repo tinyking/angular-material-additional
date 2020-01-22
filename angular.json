@@ -119,6 +119,41 @@
           }
         }
       }
+    },
+    "ng-tk-additional": {
+      "projectType": "library",
+      "root": "projects/ng-tk-additional",
+      "sourceRoot": "projects/ng-tk-additional/src",
+      "prefix": "tk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-tk-additional/tsconfig.lib.json",
+            "project": "projects/ng-tk-additional/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-tk-additional/src/test.ts",
+            "tsConfig": "projects/ng-tk-additional/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-tk-additional/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-tk-additional/tsconfig.lib.json",
+              "projects/ng-tk-additional/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "angular-material-additional"
 }

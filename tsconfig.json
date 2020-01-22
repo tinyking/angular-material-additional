@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-tk-additional": [
+        "dist/ng-tk-additional"
+      ],
+      "ng-tk-additional/*": [
+        "dist/ng-tk-additional/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
