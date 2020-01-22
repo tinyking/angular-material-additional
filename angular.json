@@ -119,6 +119,41 @@
           }
         }
       }
+    },
+    "ngmat-lib": {
+      "projectType": "library",
+      "root": "projects/ngmat-lib",
+      "sourceRoot": "projects/ngmat-lib/src",
+      "prefix": "ngmat",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngmat-lib/tsconfig.lib.json",
+            "project": "projects/ngmat-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngmat-lib/src/test.ts",
+            "tsConfig": "projects/ngmat-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/ngmat-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngmat-lib/tsconfig.lib.json",
+              "projects/ngmat-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-material-additional"

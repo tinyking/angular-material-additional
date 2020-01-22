@@ -24,6 +24,12 @@
       ],
       "ng-tk-additional/*": [
         "dist/ng-tk-additional/*"
+      ],
+      "ngmat-lib": [
+        "dist/ngmat-lib"
+      ],
+      "ngmat-lib/*": [
+        "dist/ngmat-lib/*"
       ]
     }
   },
