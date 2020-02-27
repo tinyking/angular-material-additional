@@ -1,0 +1,57 @@
+<mat-tree
+  [dataSource]="dataSource"
+  [treeControl]="treeControl"
+  cdkDropList
+  (cdkDropListDropped)="drop2($event)"
+>
+  <mat-tree-node
+    *matTreeNodeDef="let node"
+    matTreeNodePadding
+    cdkDrag
+    [cdkDragData]="node"
+    (mouseenter)="dragHover(node)"
+    (mouseleave)="dragHoverEnd()"
+    (cdkDragStarted)="dragStart(node)"
+    (cdkDragReleased)="dragEnd()"
+    [cdkDragDisabled]="!!node.root"
+    [ngClass]="{ 'drag-disabled': node.root }"
+    (click)="selected = node"
+    [class.selected]="selected === node"
+  >
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <button mat-icon-button disabled matTreeNodeToggle></button>
+
+    {{ getText(node) }}
+    <ng-container
+      [ngTemplateOutlet]="extra"
+      [ngTemplateOutletContext]="{ $implicit: node.data }"
+    ></ng-container>
+  </mat-tree-node>
+
+  <mat-tree-node
+    *matTreeNodeDef="let node; when: hasChild"
+    matTreeNodePadding
+    cdkDrag
+    [cdkDragData]="node"
+    (mouseenter)="dragHover(node)"
+    (mouseleave)="dragHoverEnd()"
+    (cdkDragStarted)="dragStart(node)"
+    (cdkDragReleased)="dragEnd()"
+    [cdkDragDisabled]="!!node.root"
+    [ngClass]="{ 'drag-disabled': node.root }"
+    (click)="selected = node"
+    [class.selected]="selected === node"
+  >
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <button mat-icon-button matTreeNodeToggle>
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+      </mat-icon>
+    </button>
+    {{ getText(node) }}
+    <ng-container
+      [ngTemplateOutlet]="extra"
+      [ngTemplateOutletContext]="{ $implicit: node.data }"
+    ></ng-container>
+  </mat-tree-node>
+</mat-tree>
