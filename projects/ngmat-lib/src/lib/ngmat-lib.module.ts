@@ -8,9 +8,14 @@ import {
 } from '@angular/material';
 import { NgmatLibComponent } from './ngmat-lib.component';
 import { DragTreeComponent } from './drag-tree/drag-tree.component';
+import { MultiAutocompleteSelectComponent } from './multi-autocomplete-select/multi-autocomplete-select.component';
 
 @NgModule({
-  declarations: [NgmatLibComponent, DragTreeComponent],
+  declarations: [
+    NgmatLibComponent,
+    DragTreeComponent,
+    MultiAutocompleteSelectComponent
+  ],
   imports: [
     MatTreeModule,
     DragDropModule,
@@ -18,6 +23,6 @@ import { DragTreeComponent } from './drag-tree/drag-tree.component';
     MatIconModule,
     MatButtonModule
   ],
-  exports: [NgmatLibComponent, DragTreeComponent]
+  exports: [DragTreeComponent, MultiAutocompleteSelectComponent]
 })
 export class NgmatLibModule {}
